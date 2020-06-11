@@ -1,0 +1,21 @@
+<div class="container w3-text-gray">
+    <form [formGroup]="entryForm" autocomplete="off" autocapitalize="off">
+        <div class="form-group mt-2">
+            <label for="weight">Weight</label>
+            <input id="weight" class="form-control" type="number" placeholder="Enter weight" formControlName="weight">
+            <small class="text-danger" *ngIf="hasError('weight', 'required')">Title is required.<br></small>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="bodyFat">Body Fat</label>
+            <input id="bodyFat" type="number" class="form-control" placeholder="Body fat" formControlName="bodyFat">
+            <small class="text-danger" *ngIf="hasError('bodyFat', 'required')">Title is required.<br></small>
+        </div>
+        <hr>
+        <div class="text-center">
+            <button class="btn btn-success" [disabled]="!entryForm.valid" (click)="createEntry(entryForm.value)"><i class="fa fa-save"></i> Submit</button>
+            <br>
+            <img src="../../../../assets/illustrations/healthy_habit.svg" height="300">
+        </div>
+    </form>
+</div>

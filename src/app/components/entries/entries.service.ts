@@ -16,7 +16,17 @@ export class EntriesService {
   
   constructor() { }
 
-  entriesArray(): Entry[] {
+  getEntriesArray(): Entry[] {
     return this.entries;
+  }
+
+  createEntry(entry: Entry) {
+    console.log(entry);
+    this.entries.push({ 
+      id: this.entries.length + 1, 
+      date: entry.date, 
+      weight: entry.weight, 
+      bodyFat: entry.bodyFat
+    });
   }
 }

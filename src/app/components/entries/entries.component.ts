@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { EntriesService } from './entries.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'hm-entries',
@@ -8,12 +9,24 @@ import { EntriesService } from './entries.service';
 })
 export class EntriesComponent implements OnInit {
   searchText: string = '';
-  @ViewChild("search")
+  showBodyFat: boolean = true;
+
   public searchElementRef: ElementRef;
   
-  constructor(public entriesService: EntriesService) { }
+  constructor(
+    public entriesService: EntriesService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  toggleShowBodyFat() {
+    this.showBodyFat = this.showBodyFat ? false : true;
+  }
+
+  goToNewEntry() {
+    this.router.navigate(['/new-entry']);
   }
 
 }
