@@ -1,0 +1,22 @@
+<div class="container">
+    <input type="text" name="search" class="form-control mt-2" [(ngModel)]="searchText" autocomplete="off" placeholder="🔎 Search by date, weight or body fat %">
+
+    <table class="table table-sm mt-3">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Body Fat %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entry of entriesService.entries | filter:searchText; let i = index;">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{entry.date | date}}</td>
+                <td>{{entry.weight}}</td>
+                <td>{{entry.bodyFat}}%</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
