@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class EntriesComponent implements OnInit {
   searchText: string = '';
-  showBodyFat: boolean = true;
-
+  showBodyFat: string = '';
+  total: number = 0;
   public searchElementRef: ElementRef;
   
   constructor(
@@ -19,14 +19,11 @@ export class EntriesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.total = this.entriesService.getEntriesArray().length;
   }
 
-  toggleShowBodyFat() {
-    this.showBodyFat = this.showBodyFat ? false : true;
-  }
-
-  goToNewEntry() {
-    this.router.navigate(['/new-entry']);
+  getType(){
+    return typeof(this.showBodyFat);
   }
 
 }

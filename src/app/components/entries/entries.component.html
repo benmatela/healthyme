@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container w3-text-gray">
     <input type="text" name="search" class="form-control mt-2" [(ngModel)]="searchText" autocomplete="off"
         placeholder="🔎 Search by date, weight or body fat %">
 
     <div class="row mt-3">
         <div class="col-lg-3 col-sm-12 card">
             <br>
-            <hm-stats [total]="total"></hm-stats>
+            <hm-stats [total]="total" (showBodyFat)="showBodyFat = $event"></hm-stats>
         </div>
         <div class="col-lg-9 col-sm-12 card">
             <br>
@@ -15,16 +15,16 @@
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
                         <th scope="col">Weight</th>
-                        <th [hidden]="!showBodyFat" scope="col">Body Fat %</th>
+                        <th [hidden]="showBodyFat === 'false'" scope="col">Body Fat %</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="td-hover"
                         *ngFor="let entry of entriesService.getEntriesArray() | filter:searchText; let i = index;">
                         <th scope="row">{{i + 1}}</th>
-                        <td>{{entry.date | date:'MM-dd-yyyy'}}</td>
-                        <td>{{entry.weight}}</td>
-                        <td [hidden]="!showBodyFat">{{entry.bodyFat}}%</td>
+                        <td class="w3-text-gray">{{entry.date | date:'MM-dd-yyyy'}}</td>
+                        <td class="w3-text-gray">{{entry.weight}}</td>
+                        <td class="w3-text-gray" [hidden]="showBodyFat === 'false'">{{entry.bodyFat}}%</td>
                     </tr>
                 </tbody>
             </table>
