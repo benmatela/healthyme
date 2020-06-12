@@ -9,13 +9,15 @@ import { HomeComponent } from './components/home/home.component';
 import { EntriesComponent } from './components/entries/entries.component';
 import { EntriesService } from './components/entries/entries.service';
 import { NewEntryComponent } from './components/entries/new-entry/new-entry.component';
+import { StatsComponent } from './components/entries/stats/stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     EntriesComponent,
-    NewEntryComponent
+    NewEntryComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
