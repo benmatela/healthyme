@@ -15,7 +15,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
                         <th scope="col">Weight</th>
-                        <th [hidden]="showBodyFat === 'false'" scope="col">Body Fat %</th>
+                        <th [hidden]="!showBodyFat" scope="col">Body Fat %</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +24,7 @@
                         <th scope="row">{{i + 1}}</th>
                         <td class="w3-text-gray">{{entry.date | date:'MM-dd-yyyy'}}</td>
                         <td class="w3-text-gray">{{entry.weight}}</td>
-                        <td class="w3-text-gray" [hidden]="showBodyFat === 'false'">{{entry.bodyFat}}%</td>
+                        <td class="w3-text-gray" [hidden]="!showBodyFat">{{entry.bodyFat}}%</td>
                     </tr>
                 </tbody>
             </table>

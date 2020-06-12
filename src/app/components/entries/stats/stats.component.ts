@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class StatsComponent implements OnInit {
   @Input() public total: number = 0;
-  @Output() public showBodyFat = new EventEmitter();
+  @Output() public showBodyFat = new EventEmitter<boolean>();
   show: boolean = false;
 
   constructor(private router: Router) { }
@@ -23,7 +23,7 @@ export class StatsComponent implements OnInit {
    else {
       this.show = true;
    }
-   this.showBodyFat.emit(String(this.show));
+   this.showBodyFat.emit(this.show);
   }
 
   goToNewEntry() {
